@@ -36,7 +36,13 @@ export default function Plants() {
             alert("Please enter a valid watering schedule");
         }
 
-        if (plantName && photo && wateringSchedule > 0) {
+
+        while (plants.some(plant => plant.name.toLowerCase() === plantName.toLowerCase())) {
+            alert("A plant with this name already exists. Please choose a unique name.");
+            return;
+        }
+
+        if (plantName && photo && wateringSchedule > 0 ) {
             alert("Plant added successfully");
             setFormOpen(false);
         }
@@ -65,19 +71,23 @@ export default function Plants() {
 
     return (
         <>
-            <h1 className='text-center text-[#0c2d19] text-[40px] font-bold my-5'>Keep your plants thriving !</h1>
+            <h1 className='text-center text-[#0c2d19] text-[40px] font-bold my-8'>Keep your plants thriving !</h1>
             <div className='flex flex-col items-center mb-10 h-fit-content'>
-                <div className='w-full h-115 grid grid-rows-2 grid-cols-5 mx-5'>
+                <div className='w-full h-150 grid grid-rows-2 grid-cols-5 mx-5'>
                     {plants.map((plant, index) => (
                         <div key={index} className='relative mx-10'>
-                            <div className='flex justify-center items-center rounded-lg mb-5'>
+                            <div className='relative flex justify-center items-center rounded-lg'>
                                 <img src={setup} alt="setup" className='size-35' />
                                 <img src={plant.photo} alt={plant.name} className='absolute top-0 left-0 w-25 h-25 object-cover mx-16 my-4' />
                             </div>
-                            <div className='absolute bottom-0 left-0 w-fit-content bg-opacity-75 mt-40 p-2'>
+                            <div className='absolute bottom-0 left-0 w-fit-content bg-opacity-75 p-5'>
                                 <h3 className='text-xl font-bold text-green-700'>{plant.name}</h3>
                                 <p className='text-[16px] text-black font-semibold'>Watering every: {plant.wateringSchedule} {plant.wateringSchedule > 1 ? 'hours' : 'hour'}</p>
                                 <CountDown plant={plant} key={index}/>
+                            </div>
+                            <div className='flex justify-center items-center mt-2'>
+                                <button className='bg-green-600 hover:bg-green-800 text-white text-[20px] font-bold py-2 px-4 rounded h-10 w-25 border-1 border-black mx-2'>Water</button>
+                                <button className='bg-green-600 hover:bg-green-800 text-white text-[20px] font-bold py-2 px-4 rounded h-10 w-25 border-1 border-black mx-2'>Delete</button>
                             </div>
                         </div>
                     ))}
