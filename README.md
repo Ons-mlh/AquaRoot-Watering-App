@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 AquaRoot - Plant Watering App
 
 🌱 About the Project
