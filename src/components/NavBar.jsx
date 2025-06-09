@@ -11,15 +11,15 @@ export default function NavBar() {
 
                 <div className="flex justify-between items-center md:px-10">
                     <button
-                        className="md:hidden text-green-700 focus:outline-none" 
+                        className="sm:hidden text-green-700 focus:outline-none" 
                         onClick={() => setMenuOpen(true)}>
                         <Menu size={28}></Menu>
                     </button>
                     <h1 className='text-2xl font-it italic font-bold text-green-700'>AquaRoot</h1>
-                    <ul className="hidden lg:flex space-x-20 text-green-600 font-medium">
-                        <li><a href="/" className="hover:text-green-800 text-[18px]">Home</a></li>
-                        <li><a href="/about" className="hover:text-green-800 text-[18px]">About</a></li>
-                        <li><a href="/plants" className="hover:text-green-800 text-[18px]">My plants</a></li>
+                    <ul className="hidden md:flex space-x-20 text-green-600 font-medium">
+                        <li><a href="/" className="hover:text-green-800 text-[20px]">Home</a></li>
+                        <li><a href="/about" className="hover:text-green-800 text-[20px]">About</a></li>
+                        <li><a href="/plants" className="hover:text-green-800 text-[20px]">My plants</a></li>
                     </ul>
                     <img src= {logo} alt="logo" className='w-10'/>
                 </div>

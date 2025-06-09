@@ -69,6 +69,17 @@ export default function Plants() {
         }
     },[]);
 
+    const handleDelete = (index) => {
+        const updatedPlants = plants.filter((_, i) => i !== index);
+        setPlants(updatedPlants);
+        localStorage.setItem("plants", JSON.stringify(updatedPlants));
+        alert("Plant deleted successfully");
+    }
+
+    const handleWatering = () => {
+        alert("Plant watered successfully");
+    }
+
     return (
         <>
             <h1 className='text-center text-[#0c2d19] text-[40px] font-bold my-8'>Keep your plants thriving !</h1>
@@ -80,14 +91,14 @@ export default function Plants() {
                                 <img src={setup} alt="setup" className='size-35' />
                                 <img src={plant.photo} alt={plant.name} className='absolute top-0 left-0 w-25 h-25 object-cover mx-16 my-4' />
                             </div>
-                            <div className='absolute bottom-0 left-0 w-fit-content bg-opacity-75 p-5'>
+                            <div className='absolute bottom-0 left-0 w-fit-content bg-opacity-75 pb-5 pt-2 px-5'>
                                 <h3 className='text-xl font-bold text-green-700'>{plant.name}</h3>
                                 <p className='text-[16px] text-black font-semibold'>Watering every: {plant.wateringSchedule} {plant.wateringSchedule > 1 ? 'hours' : 'hour'}</p>
                                 <CountDown plant={plant} key={index}/>
                             </div>
-                            <div className='flex justify-center items-center mt-2'>
-                                <button className='bg-green-600 hover:bg-green-800 text-white text-[20px] font-bold py-2 px-4 rounded h-10 w-25 border-1 border-black mx-2'>Water</button>
-                                <button className='bg-green-600 hover:bg-green-800 text-white text-[20px] font-bold py-2 px-4 rounded h-10 w-25 border-1 border-black mx-2'>Delete</button>
+                            <div className='flex justify-center items-center mt-4'>
+                                <button className='bg-green-600 hover:bg-green-800 text-white text-[18px] font-bold py-2 px-2 rounded h-8 w-20 border-1 border-black mx-2' onClick={handleWatering}>Water</button>
+                                <button className='bg-green-600 hover:bg-green-800 text-white text-[18px] font-bold py-2 px-2 rounded h-8 w-20 border-1 border-black mx-2' onClick={() => handleDelete(index)}>Delete</button>
                             </div>
                         </div>
                     ))}
