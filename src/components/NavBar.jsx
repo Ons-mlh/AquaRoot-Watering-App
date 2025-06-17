@@ -7,7 +7,7 @@ export default function NavBar() {
 
     return (
         <>
-            <nav className="shadow-md px-6 py-4">
+            <nav className="shadow-md px-6 py-4 w-full">
 
                 <div className="flex justify-between items-center md:px-10">
                     <button
