@@ -16,10 +16,10 @@ export default function NavBar() {
                         <Menu size={28}></Menu>
                     </button>
                     <h1 className='text-2xl font-it italic font-bold text-green-700'>AquaRoot</h1>
-                    <ul className="hidden md:flex space-x-20 text-green-600 font-medium">
-                        <li><a href="/" className="hover:text-green-800 text-[20px]">Home</a></li>
-                        <li><a href="/about" className="hover:text-green-800 text-[20px]">About</a></li>
-                        <li><a href="/plants" className="hover:text-green-800 text-[20px]">My plants</a></li>
+                    <ul className="hidden md:flex space-x-20 text-green-600 font-bold">
+                        <li><a href="/" className="hover:text-green-800 text-[22px]">Home</a></li>
+                        <li><a href="/about" className="hover:text-green-800 text-[22px]">About</a></li>
+                        <li><a href="/plants" className="hover:text-green-800 text-[22px]">My plants</a></li>
                     </ul>
                     <img src= {logo} alt="logo" className='w-10'/>
                 </div>
@@ -32,10 +32,16 @@ export default function NavBar() {
                         <X size={28} />
                     </button>
 
-                    <ul className="space-y-8 text-green-600 font-medium mt-5">
-                        <li><a href="/" className="block hover:text-green-800">Home</a></li>
-                        <li><a href="/about" className="block hover:text-green-800">About</a></li>
-                        <li><a href="/plants" className="block hover:text-green-800">My Plants</a></li>
+                    <ul className="space-y-8 text-[18px] text-green-700 font-bold mt-5">
+                        <div className='flex justify-center items-center mb-5 h-15 hover:bg-green-50 rounded-2xl'>
+                            <li><a href="/" className="block hover:text-green-950">Home</a></li>
+                        </div>
+                        <div className='flex justify-center items-center mb-5 h-15 hover:bg-green-50 rounded-2xl'>
+                            <li><a href="/about" className="block hover:text-green-800">About</a></li>
+                        </div>
+                        <div className='flex justify-center items-center mb-5 h-15 hover:bg-green-50 rounded-2xl'>
+                            <li><a href="/plants" className="block hover:text-green-800">My Plants</a></li>
+                        </div>
                     </ul>
                 </div>
 
