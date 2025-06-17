@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import {Upload} from 'lucide-react';
-import setup from '../assets/setup.png';
-import CountDown from '../components/CountDown';
+import Plant from '../components/Plant';
 
 export default function Plants() {
     const [formOpen, setFormOpen] = useState(false);
@@ -82,34 +81,19 @@ export default function Plants() {
 
     return (
         <>
-            <h1 className='text-center text-[#0c2d19] text-[40px] font-bold my-8'>Keep your plants thriving !</h1>
-            <div className='flex flex-col items-center mb-10 h-fit-content'>
-                <div className='w-full h-150 grid grid-rows-2 grid-cols-5 mx-5'>
-                    {plants.map((plant, index) => (
-                        <div key={index} className='relative mx-10'>
-                            <div className='relative flex justify-center items-center rounded-lg'>
-                                <img src={setup} alt="setup" className='size-35' />
-                                <img src={plant.photo} alt={plant.name} className='absolute top-0 left-0 w-25 h-25 object-cover mx-16 my-4' />
-                            </div>
-                            <div className='absolute bottom-0 left-0 w-fit-content bg-opacity-75 pb-5 pt-2 px-5'>
-                                <h3 className='text-xl font-bold text-green-700'>{plant.name}</h3>
-                                <p className='text-[16px] text-black font-semibold'>Watering every: {plant.wateringSchedule} {plant.wateringSchedule > 1 ? 'hours' : 'hour'}</p>
-                                <CountDown plant={plant} key={index}/>
-                            </div>
-                            <div className='flex justify-center items-center mt-4'>
-                                <button className='bg-green-600 hover:bg-green-800 text-white text-[18px] font-bold py-2 px-2 rounded h-8 w-20 border-1 border-black mx-2' onClick={handleWatering}>Water</button>
-                                <button className='bg-green-600 hover:bg-green-800 text-white text-[18px] font-bold py-2 px-2 rounded h-8 w-20 border-1 border-black mx-2' onClick={() => handleDelete(index)}>Delete</button>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div className='flex justify-center items-center h-fit-content'>
-                    <button className='bg-green-600 hover:bg-green-800 text-white text-[20px] font-bold py-2 px-4 rounded h-10 w-40 border-1 border-black mx-10' onClick={() => setFormOpen(true)}>
+            <div className='flex flex-col items-center mb-10 h-fit mt-10'>
+                <div className='flex justify-center items-center'>
+                    <button className='bg-green-600 hover:bg-green-800 text-white text-[16px] md:text-[20px] font-bold py-1 md:py-2 px-4 rounded h-10 w-33 md:w-40 border-1 border-black mx-10' onClick={() => setFormOpen(true)}>
                         Add a plant
                     </button>
-                    <button className='bg-green-600 hover:bg-green-800 text-white text-[20px] font-bold py-2 px-4 rounded h-10 w-40 border-1 border-black' onClick={() => setPlants([])}>
+                    <button className='bg-green-600 hover:bg-green-800 text-white text-[16px] md:text-[20px] font-bold py-1 md:py-2 px-4 rounded h-10 w-33 md:w-40 border-1 border-black' onClick={() => setPlants([])}>
                         Reset Plants
                     </button>
+                </div>
+                <div className='w-fit grid grid-cols-2 md:grid-cols-5 md:gap-4 md:mx-5 mt-5'>
+                    {plants.map((plant, index) => (
+                        <Plant key={index} plant={plant} index={index} handleDelete={handleDelete} handleWatering={handleWatering} />
+                    ))}
                 </div>
             </div>
 
@@ -133,7 +117,7 @@ export default function Plants() {
                                 <span className="ml-4 text-gray-700 truncate">{fileName}</span>
                             </div>
 
-                            <label htmlFor="water" className='text-left w-full mb-2 font-bold'>Watering schedule*</label>
+                            <label htmlFor="water" className='text-left w-full mb-2 font-bold'>Watering schedule (hours)*</label>
                             <input type="number" placeholder='Enter the watering schedule (hours)' min={1} className='mb-4 p-2 border border-gray-300 rounded w-full' value={wateringSchedule} onChange={handleWateringSchedule}/>
                         
                         </form>

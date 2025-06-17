@@ -35,7 +35,7 @@ export default function CountDown({plant}) {
                     onComplete={handleComplete}
                     renderer={({ hours, minutes, seconds }) => (
                         <p className="text-s font-semibold text-black w-[230px]">
-                            Next watering in: <span className='text-s font-semibold text-green-600'>{hours}h {minutes}m {seconds}s</span>
+                            Next watering in: <span className=' text-[14px] md:text-s font-semibold text-green-600'>{hours}h {minutes}m {seconds}s</span>
                         </p>
                     )}
                 />

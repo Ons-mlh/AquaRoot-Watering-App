@@ -25,7 +25,7 @@ export default function NavBar() {
                 </div>
                 
                 <div
-                    className={`fixed top-0 left-0 h-full w-64 bg-white/30 backdrop-blur-lg shadow-lg p-5 transform ${
+                    className={`fixed z-1 top-0 left-0 h-full w-64 bg-white/30 backdrop-blur-lg shadow-lg p-5 transform ${
                     menuOpen ? "translate-x-0" : "-translate-x-full"
                     } transition-transform duration-300`} >
                     <button className="text-green-700 mb-4" onClick={() => setMenuOpen(false)}>
