@@ -75,10 +75,6 @@ export default function Plants() {
         alert("Plant deleted successfully");
     }
 
-    const handleWatering = () => {
-        alert("Plant watered successfully");
-    }
-
     return (
         <>
             <div className='flex flex-col items-center mb-10 h-fit mt-10'>
@@ -90,9 +86,9 @@ export default function Plants() {
                         Reset Plants
                     </button>
                 </div>
-                <div className='w-fit grid grid-cols-2 md:grid-cols-5 md:gap-4 md:mx-5 mt-5'>
+                <div className='w-fit grid grid-cols-2 md:grid-cols-5 gap-x-15 md:gap-4 md:mx-5 mt-5'>
                     {plants.map((plant, index) => (
-                        <Plant key={index} plant={plant} index={index} handleDelete={handleDelete} handleWatering={handleWatering} />
+                        <Plant key={index} plant={plant} index={index} handleDelete={handleDelete} />
                     ))}
                 </div>
             </div>
@@ -100,7 +96,9 @@ export default function Plants() {
             {formOpen && (
 
                 <div className="fixed inset-0 bg-black/10 flex items-center justify-center p-4">
+
                     <div className="bg-white/80 p-6 rounded-lg w-full max-w-md flex flex-col justify-center items-center">
+
                         <h2 className='text-green-700 font-bold text-xl mb-4'>Add New Plant</h2>
                         
                         <form className='flex flex-col items-center w-full text-[#0c2d19]'>
@@ -125,7 +123,9 @@ export default function Plants() {
                             <button className='bg-red-600 hover:bg-red-800 text-white text-[18px] font-bold py-2 px-4 rounded mt-1 border-black border-1 shadow-2xl' onClick={handleSubmit}>Save Plant</button>
                             <button className='bg-red-600 hover:bg-red-800 text-white text-[18px] font-bold py-2 px-4 rounded mt-1 border-black border-1 shadow-2xl' onClick={() => setFormOpen(false)}>Close</button>
                         </div>
+
                     </div>
+
                 </div>
             )}
         </>
